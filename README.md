@@ -1,10 +1,18 @@
-# Segment Annotations
+# Meta's Segment Anything Model (SAM) Demo Site
 
 ## About
 
 Image / Video annotation based on Meta's Segment Anything Model (SAM). \
 This repository is based on their demo website,
 [segment-anything.com](segment-anything.com).
+
+<!--
+## Overview
+
+The demo website uses two quantized models
+- Prompt Encoder: `interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx`
+- Mask Decoder: `interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx`
+-->
 
 <!--
 # Getting Started with Create React App

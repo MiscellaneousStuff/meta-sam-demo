@@ -159,7 +159,7 @@ const ImagePicker = ({
 
   return (
     <div className="pt-6 mx-4">
-      {!enableDemo && <StarterModal />}
+      {/*!enableDemo && <StarterModal />*/}
       {/* <Button onClick={downloadAllImageResponses}>
         Download All Image Responses
       </Button> */}

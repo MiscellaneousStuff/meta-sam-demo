@@ -511,6 +511,7 @@ const App = () => {
   return (
     <>
       <Routes>
+        {/*
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route
           path="/terms"
@@ -537,6 +538,8 @@ const App = () => {
             </div>
           }
         />
+        */}
+        {/*
         <Route
           path="/"
           element={
@@ -557,11 +560,14 @@ const App = () => {
             </div>
           }
         />
+        */}
         <Route
           path="/demo"
           element={
             <div className={`flex flex-col h-full overflow-hidden`}>
+              {/*
               <NavBar resetState={handleResetState} />
+              */}
               <Stage
                 scale={modelScale}
                 handleResetState={handleResetState}
