@@ -1,0 +1,721 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Optimistic Display";
+    src: url(../fonts/optimistic/Optimistic_Display_W_Md.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Display_W_Md.woff) format("woff");
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "Optimistic Display";
+    src: url(../fonts/optimistic/Optimistic_Display_W_SBd.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Display_W_SBd.woff) format("woff");
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: "Optimistic Display";
+    src: url(../fonts/optimistic/Optimistic_Display_W_Bd.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Display_W_Bd.woff) format("woff");
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "Optimistic Text";
+    src: url(../fonts/optimistic/Optimistic_Text_W_Rg.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Text_W_Rg.woff) format("woff");
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "Optimistic Text";
+    src: url(../fonts/optimistic/Optimistic_Text_W_Md.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Text_W_Md.woff) format("woff");
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "Optimistic Text";
+    src: url(../fonts/optimistic/Optimistic_Text_W_Bd.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Text_W_Bd.woff) format("woff");
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "Optimistic Text";
+    src: url(../fonts/optimistic/Optimistic_Text_W_XBd.woff2) format("woff2"),
+      url(../fonts/optimistic/Optimistic_Text_W_XBd.woff) format("woff");
+    font-weight: 800;
+  }
+}
+
+body {
+  font-family: "Optimistic Text", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+}
+
+:root {
+  --segEv-font: "Optimistic Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  --perspective: 4000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Optimistic Display", sans-serif;
+}
+
+.prose .display h1 {
+  @apply text-4xl text-gray-800 font-medium leading-tight;
+}
+
+.prose .display h2 {
+  @apply text-gray-800 font-medium leading-tight;
+  font-size: 2.5rem;
+}
+
+.prose h1 {
+  @apply text-3xl text-gray-800 font-medium leading-tight mt-2 mb-4;
+  letter-spacing: 0.016rem;
+}
+
+.prose h2 {
+  @apply text-2xl text-gray-800 font-medium leading-tight my-2;
+  letter-spacing: 0.01rem;
+}
+
+.prose h3 {
+  @apply text-xl text-gray-800 font-medium leading-tight my-2;
+  letter-spacing: 0.005rem;
+}
+
+.prose h4 {
+  @apply text-lg text-gray-800 font-medium leading-tight my-2;
+}
+
+.prose h5 {
+  @apply text-xl text-gray-600 font-normal leading-normal my-2;
+  letter-spacing: 0.005rem;
+}
+
+.prose h6 {
+  @apply text-base text-gray-600 font-normal leading-normal my-2;
+}
+
+.prose p {
+  @apply text-sm text-gray-600 font-normal leading-normal;
+}
+
+.prose ol,
+.prose ul {
+  @apply text-sm text-gray-600 font-normal leading-normal;
+  padding-right: 2rem;
+}
+
+/* Non-mobile typography */
+@media screen and (lg) {
+  .prose .display h1 {
+    @apply text-6xl;
+  }
+
+  .prose .display h2 {
+    @apply text-5xl;
+  }
+
+  .prose h1 {
+    @apply text-4xl;
+  }
+
+  .prose h2 {
+    @apply text-3xl;
+  }
+
+  .prose h3 {
+    @apply text-2xl;
+  }
+
+  .prose h4 {
+    @apply text-lg text-gray-800;
+  }
+
+  .prose h5 {
+    @apply text-2xl;
+  }
+
+  .prose h6:not(h6.faq) {
+    @apply text-base;
+  }
+
+  .prose ol,
+  .prose ul {
+    padding-right: 3rem;
+  }
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+≈ {
+  @apply text-white;
+}
+
+.dark-mode h4,
+.dark-mode h6 {
+  @apply text-gray-200;
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+}
+
+.flex-grow-4 {
+  flex-grow: 4;
+}
+
+.flex-grow-5 {
+  flex-grow: 5;
+}
+
+.nav-title {
+  font-family: var(--segEv-font);
+}
+
+/**
+ * Daisy UI customizations
+ */
+
+.btn {
+  @apply normal-case rounded-md;
+}
+
+.comp_summary h1,
+.comp_summary h2,
+.comp_summary h3 {
+  @apply mb-4;
+}
+
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.absolute-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@screen lg {
+  .drawer .grid {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+.fade-in {
+  transition: opacity 0.5s;
+  opacity: 1 !important;
+}
+
+.react-photo-gallery--gallery > div {
+  gap: 0.25rem;
+}
+
+.sticker {
+  filter: drop-shadow(0.25rem 0.25rem 5px #fff)
+    drop-shadow(-0.25rem 0.25rem 5px #fff)
+    drop-shadow(0.25rem -0.25rem 5px #fff)
+    drop-shadow(-0.25rem -0.25rem 5px #fff);
+  transition: filter 0.3s ease-out;
+}
+
+.sticker:hover,
+.sticker-select {
+  filter: drop-shadow(0.25rem 0.25rem 1px #2962d9)
+    drop-shadow(-0.25rem 0.25rem 1px #2962d9)
+    drop-shadow(0.25rem -0.25rem 1px #2962d9)
+    drop-shadow(-0.25rem -0.25rem 1px #2962d9);
+}
+
+.mask-path {
+  opacity: 0;
+  animation: reveal 0.4s ease-in forwards;
+}
+
+.Canvas.multi-mask-mode {
+  svg.mask-1-of-1,
+  svg.mask-1-of-2,
+  svg.mask-2-of-2,
+  svg.mask-1-of-3,
+  svg.mask-2-of-3,
+  svg.mask-3-of-3 {
+    opacity: 0;
+  }
+  &.rotate {
+    .background {
+      animation: rotate0 1s ease-in forwards;
+    }
+    & > img:nth-child(2) {
+      animation: rotate 1s ease-in forwards;
+    }
+    svg.mask-best {
+      animation: rotate-best 1s ease-in forwards;
+    }
+    svg.mask-1-of-1 {
+      animation: rotate-1-of-1 1s ease-in forwards;
+    }
+    svg.mask-1-of-2 {
+      animation: rotate-1-of-2 1s ease-in forwards;
+    }
+    svg.mask-2-of-2 {
+      animation: rotate-2-of-2 1s ease-in forwards;
+    }
+    svg.mask-1-of-3 {
+      animation: rotate-1-of-3 1s ease-in forwards;
+    }
+    svg.mask-2-of-3 {
+      animation: rotate-2-of-3 1s ease-in forwards;
+    }
+    svg.mask-3-of-3 {
+      animation: rotate-3-of-3 1s ease-in forwards;
+    }
+    .konva {
+      opacity: 1;
+      animation: disappear 0.5s ease-out forwards;
+    }
+  }
+  &.unrotate {
+    .background {
+      animation: unrotate0 1s ease-out forwards;
+    }
+    & > img:nth-child(2) {
+      animation: unrotate 1s ease-out forwards;
+    }
+    svg.mask-best {
+      animation: unrotate-best 1s ease-out forwards;
+    }
+    svg.mask-1-of-1 {
+      animation: unrotate-1-of-1 1s ease-out forwards;
+    }
+    svg.mask-1-of-2 {
+      animation: unrotate-1-of-2 1s ease-out forwards;
+    }
+    svg.mask-2-of-2 {
+      animation: unrotate-2-of-2 1s ease-out forwards;
+    }
+    svg.mask-1-of-3 {
+      animation: unrotate-1-of-3 1s ease-out forwards;
+    }
+    svg.mask-2-of-3 {
+      animation: unrotate-2-of-3 1s ease-out forwards;
+    }
+    svg.mask-3-of-3 {
+      animation: unrotate-3-of-3 1s ease-out forwards;
+    }
+    .konva {
+      opacity: 0;
+      animation: reveal 0.5s ease-in 0.5s forwards;
+    }
+  }
+}
+
+/* keyframe animations */
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate0 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(-20%) rotateY(60deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes unrotate0 {
+  from {
+    transform: perspective(var(--perspective)) translateX(-20%) rotateY(60deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: perspective(var(--perspective));
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(-20%) rotateY(60deg);
+  }
+}
+
+@keyframes unrotate {
+  from {
+    transform: perspective(var(--perspective)) translateX(-20%) rotateY(60deg);
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+  }
+  100% {
+    transform: perspective(var(--perspective));
+  }
+}
+
+@keyframes rotate-best {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unrotate-best {
+  from {
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 1;
+  }
+}
+
+@keyframes rotate-1-of-1 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(30%) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-1-of-1 {
+  from {
+    transform: perspective(var(--perspective)) translateX(30%) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+@keyframes rotate-1-of-2 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(10%) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-1-of-2 {
+  from {
+    transform: perspective(var(--perspective)) translateX(10%) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+@keyframes rotate-2-of-2 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(40%) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-2-of-2 {
+  from {
+    transform: perspective(var(--perspective)) translateX(40%) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+@keyframes rotate-1-of-3 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-1-of-3 {
+  from {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-2-of-3 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(20%) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-2-of-3 {
+  from {
+    transform: perspective(var(--perspective)) translateX(20%) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-3-of-3 {
+  from {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective)) translateX(40%) rotateY(60deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes unrotate-3-of-3 {
+  from {
+    transform: perspective(var(--perspective)) translateX(40%) rotateY(60deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: perspective(var(--perspective)) rotateY(60deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(var(--perspective));
+    opacity: 0;
+  }
+}
+
+.background-animate {
+  background-size: 400%;
+  -webkit-animation: AnimationName 3s ease infinite;
+  -moz-animation: AnimationName 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+}
+
+@keyframes AnimationName {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    max-height: 600px;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+    max-height: 600px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0px;
+  }
+}
+
+.mask-gradient {
+  opacity: 0;
+  animation: reveal-and-hide 1.5s 0.3s forwards;
+}
+
+@keyframes reveal-and-hide {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Fix for Safari and Mobile Safari:
+Extracted Tailwind progress-bar styles and applied
+them to a <div> instead of a <progress> element  */
+
+.loading-bar {
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  height: 0.5rem;
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+  vertical-align: baseline;
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.2;
+
+  &::after {
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--n) / var(--tw-bg-opacity));
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: -40%;
+    width: 33.333333%;
+    border-radius: 1rem;
+    border-radius: var(--rounded-box, 1rem);
+    animation: loading 5s infinite ease-in-out;
+  }
+}
+
+@keyframes loading {
+  50% {
+    left: 107%;
+  }
+}
