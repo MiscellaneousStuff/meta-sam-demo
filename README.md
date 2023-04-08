@@ -4,7 +4,7 @@
 
 <!--Image / Video annotation based on Meta's Segment Anything Model (SAM). \-->
 This repository is based on their demo website,
-[segment-anything.com](segment-anything.com).
+[segment-anything.com](https://segment-anything.com).
 
 ## Usage
 
