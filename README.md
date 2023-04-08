@@ -6,6 +6,23 @@
 This repository is based on their demo website,
 [segment-anything.com](segment-anything.com).
 
+## Usage
+
+To use this repository, clone it and install the required packages
+by doing:
+
+```bash
+git clone https://github.com/MiscellaneousStuff/meta-sam-demo
+cd meta-sam-demo
+npm i
+```
+
+Then run it like a regular react app:
+
+```bash
+npm run start
+```
+
 <!--
 ## Overview
 
