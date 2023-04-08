@@ -511,8 +511,8 @@ const App = () => {
   return (
     <>
       <Routes>
+        <Route path="*" element={<Navigate replace to="/demo" />} />
         {/*
-        <Route path="*" element={<Navigate replace to="/" />} />
         <Route
           path="/terms"
           element={

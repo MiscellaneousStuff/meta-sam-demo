@@ -23,6 +23,11 @@ Then run it like a regular react app:
 npm run start
 ```
 
+To actually use the site when it is deployed, navigate to:
+`http://localhost:3000/`. By default, the site re-directs to the
+demo page, however, all of the original pages are included and you
+can uncomment out whatever you want to run.
+
 <!--
 ## Overview
 
