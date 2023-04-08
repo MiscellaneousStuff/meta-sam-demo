@@ -30,9 +30,9 @@ import NavBar from "./components/Navbar";
 import Stage from "./components/Stage";
 // import CookieText from "./CookieText";
 
-console.log("hi")
+// console.log("hi")
 // Onnxruntime
-ort.env.debug = true;
+ort.env.debug = false;
 // set global logging level
 ort.env.logLevel = 'verbose';
 
@@ -104,37 +104,33 @@ const App = () => {
   //   }
   // }, []);
 
-  console.log("WHY IS THIS NOT RUNNING?")
+  // console.log("WHY IS THIS NOT RUNNING?")
   useEffect(() => {
-    console.log("PRE-INIT MODEL?")
     const initModel = async () => {
-      console.log("INIT MODEL?")
       try {
-        console.log("INSIDE TRY OF INIT MODEL?")
-        console.log("process.env", process.env)
         // if (process.env.MODEL_DIR === undefined) return;
         const MODEL_DIR = "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
         const URL: string = MODEL_DIR;
         // const URL: string = process.env.MODEL_DIR;
-        console.log("MODEL URL:", URL);
         const model = await InferenceSession.create(URL);
-        console.log("model:", model);
         setModel(model);
       } catch (e) {
-        console.log("MODEL:", e);
+        // console.log("MODEL:", e);
+        console.error(e);
       }
       try {
-        console.log("MULTI MASK MODEL");
+        // console.log("MULTI MASK MODEL");
         // if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
         const MULTI_MASK_MODEL_DIR = "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
         const URL2: string = MULTI_MASK_MODEL_DIR;
-        console.log("MULTI MASK MODEL URL:", URL2);
+        // console.log("MULTI MASK MODEL URL:", URL2);
         // const URL2: string = process.env.MULTI_MASK_MODEL_DIR;
         const multiMaskModel = await InferenceSession.create(URL2);
-        console.log("multiMaskModel:", multiMaskModel);
+        // console.log("multiMaskModel:", multiMaskModel);
         setMultiMaskModel(multiMaskModel);
       } catch (e) {
-        console.log("MULTI MASK MODEL:", e);
+        // console.log("MULTI MASK MODEL:", e);
+        console.error(e);
       }
     };
     initModel();
@@ -440,7 +436,7 @@ const App = () => {
   // }, [image]);
 
   const handleSegModelResults = ({ tensor }: { tensor: Tensor }) => {
-    console.log("handleSegModelResults");
+    // console.log("handleSegModelResults");
     setTensor(tensor);
     setIsLoading(false);
     setIsErasing(false);
@@ -463,7 +459,7 @@ const App = () => {
     }[];
     image_height: number;
   }) => {
-    console.log("handleAllModelResults");
+    // console.log("handleAllModelResults");
     const allMaskSVG = allJSON.map(
       (el: {
         encodedMask: string;
