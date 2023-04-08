@@ -2,7 +2,7 @@
 
 ## About
 
-Image / Video annotation based on Meta's Segment Anything Model (SAM). \
+<!--Image / Video annotation based on Meta's Segment Anything Model (SAM). \-->
 This repository is based on their demo website,
 [segment-anything.com](segment-anything.com).
 
