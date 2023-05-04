@@ -197,7 +197,7 @@ const ImagePicker = ({
           layout={isMobile ? "columns" : "rows"}
           photos={photos}
           columns={1}
-          onClick={(e: any) => handleSelectedImage(e.target.src)}
+          onClick={(e: any) => handleSelectedImage(e.event.target.src)}
           renderPhoto={image}
         />
       </div>

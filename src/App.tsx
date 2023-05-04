@@ -380,6 +380,15 @@ const App = () => {
     data: File | URL,
     options?: { shouldNotFetchAllModel?: boolean; shouldDownload?: boolean }
   ) => {
+
+    if (data instanceof File) {
+      console.log("GOT FILE " + data.name);
+    } else if (data instanceof URL) {
+      console.log("GOT URL " + data.pathname);
+    } else {
+      console.log("GOT STRING " + data);
+    }
+
     try {
       const shouldNotFetchAllModel = options?.shouldNotFetchAllModel;
       const shouldDownload = options?.shouldDownload;
@@ -389,8 +398,10 @@ const App = () => {
       let imgName: string = "";
       if (data instanceof URL) {
         imgName = data.pathname;
-      } else if (typeof data === "string") {
-        imgName = new URL(data).pathname;
+      } else if (data instanceof String) {
+        // TODO: find the right place where to replace it...
+        data = new URL(data.replace('/assets/', '/public/assets/'));
+        imgName = data.pathname;
       }
       imgName = imgName.substring(imgName.lastIndexOf("/") + 1);
       const imgData: File = data instanceof File ? data : await getFile(data);
