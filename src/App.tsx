@@ -512,31 +512,18 @@ const App = () => {
   };
 
   return (
-    <>
-      <Routes>
-        <Route path="*" element={<Navigate replace to="/demo" />} />
-        <Route
-          path="/demo"
-          element={
-            <div className={`flex flex-col h-full overflow-hidden`}>
-              {/*
-              <NavBar resetState={handleResetState} />
-              */}
-              <Stage
-                scale={modelScale}
-                handleResetState={handleResetState}
-                handleMagicErase={handleMagicErase}
-                handleImage={handleImage}
-                hasClicked={hasClicked}
-                setHasClicked={setHasClicked}
-                handleSelectedImage={handleSelectedImage}
-                image={image}
-              />
-            </div>
-          }
-        />
-      </Routes>
-    </>
+    <div className={`flex flex-col h-full overflow-hidden`}>
+      <Stage
+        scale={modelScale}
+        handleResetState={handleResetState}
+        handleMagicErase={handleMagicErase}
+        handleImage={handleImage}
+        hasClicked={hasClicked}
+        setHasClicked={setHasClicked}
+        handleSelectedImage={handleSelectedImage}
+        image={image}
+      />
+    </div>
   );
 };
 
