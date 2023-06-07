@@ -18,7 +18,6 @@ import AppContext from "./hooks/createContext";
 import ImagePicker from "./ImagePicker";
 
 import LoadingModal from "./LoadingModal";
-import PointsModal from "./PointsModal";
 import SegmentDrawer from "./SegmentDrawer";
 import ToolTip from "./ToolTip";
 
@@ -653,7 +652,7 @@ const Stage = ({
               {showLoadingModal ? (
                 <LoadingModal handleResetState={handleResetState} />
               ) : (
-                <PointsModal />
+                <></>
               )}
               <SegmentDrawer
                 handleResetState={handleResetState}

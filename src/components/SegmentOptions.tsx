@@ -38,6 +38,15 @@ const SegmentOptions = ({
     showLoadingModal: [showLoadingModal, setShowLoadingModal],
     didShowAMGAnimation: [didShowAMGAnimation, setDidShowAMGAnimation],
   } = useContext(AppContext)!;
+
+  console.error(
+    segmentTypes,
+    "___segmentTypes",
+    segmentTypes,
+    clicks,
+    svg,
+    isModelLoaded
+  );
   return (
     <>
       <div
@@ -93,45 +102,6 @@ const SegmentOptions = ({
             }}
             className="flex opacity-70"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1"
-                y="1"
-                width="12"
-                height="12"
-                rx="2"
-                fill="#DEE3E9"
-                stroke={isMultiMaskMode ? "#2962D9" : "#1C2A33"}
-                strokeWidth="2"
-              />
-              <rect
-                x="4"
-                y="4"
-                width="12"
-                height="12"
-                rx="2"
-                fill="#DEE3E9"
-                stroke={isMultiMaskMode ? "#2962D9" : "#1C2A33"}
-                strokeWidth="2"
-              />
-              <rect
-                x="7"
-                y="7"
-                width="12"
-                height="12"
-                rx="2"
-                fill="#DEE3E9"
-                stroke={isMultiMaskMode ? "#2962D9" : "#1C2A33"}
-                strokeWidth="2"
-              />
-            </svg>
-
             <span
               className={`pl-2 opacity-70 font-bold ${
                 isMultiMaskMode && "text-blue-600 "

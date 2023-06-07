@@ -35,8 +35,7 @@
     "swipeable": "^1.0.5",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5",
-    "underscore": "^1.13.6",
-    "web-vitals": "^2.1.4"
+    "underscore": "^1.13.6"
   },
   "scripts": {
     "start": "react-scripts start",
