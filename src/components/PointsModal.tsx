@@ -5,6 +5,8 @@ const PointsModal = () => {
   const [toggle, setToggle] = React.useState(true);
   const [cookies, setCookie, removeCookie] = useCookies(["sa-mask-info"]);
 
+  console.error(toggle, " toggle: ", cookies);
+
   if (cookies["sa-mask-info"]) return null;
 
   return (
