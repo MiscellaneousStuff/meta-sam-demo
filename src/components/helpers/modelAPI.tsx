@@ -10,8 +10,10 @@ import {
   setParmsandQueryModelProps,
 } from "./Interface";
 
-const API_ENDPOINT          = "https://model-zoo.metademolab.com/predictions/segment_everything_box_model";
-const ALL_MASK_API_ENDPOINT = "https://model-zoo.metademolab.com/predictions/automatic_masks";
+const API_ENDPOINT =
+  "https://model-zoo.metademolab.com/predictions/segment_everything_box_model";
+const ALL_MASK_API_ENDPOINT =
+  "https://model-zoo.metademolab.com/predictions/automatic_masks";
 //const API_ENDPOINT = process.env.API_ENDPOINT;
 //const ALL_MASK_API_ENDPOINT = process.env.ALL_MASK_API_ENDPOINT;
 const ERASE_API_ENDPOINT = process.env.ERASE_API_ENDPOINT;
@@ -62,7 +64,6 @@ const queryModelReturnTensors = async ({
   shouldDownload,
   shouldNotFetchAllModel,
 }: queryModelReturnTensorsProps) => {
-
   // console.log("image_height, imgName, shouldDownload, shouldNotFetchAllModel:", image_height, imgName, shouldDownload, shouldNotFetchAllModel)
   // console.log("pre-queryModelReturnTensors");
   if (!API_ENDPOINT) return;
