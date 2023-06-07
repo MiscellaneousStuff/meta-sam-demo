@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { bgColorToClass } from "./Content";
+//import { bgColorToClass } from "./Content";
 export type GalleryProps = {
   color?: "theme" | "white" | "gray" | "blue" | "red" | "yellow" | "green";
   whiteText?: boolean;
@@ -49,7 +49,7 @@ export default function Gallery({
   style,
   children,
 }: PropsWithChildren<GalleryProps>) {
-  const bgColor = color ? bgColorToClass[color] : `bg-white`;
+  const bgColor = `bg-white`;
   const textColor = whiteText ? "text-white" : "text-gray-700";
   const padTop = spaceTop ? "pt-20" : "pt-4";
   const padBottom = spaceBottom ? "pb-20" : "pb-4";
