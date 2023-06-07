@@ -17,8 +17,8 @@ import {
 import AppContext from "./hooks/createContext";
 import ImagePicker from "./ImagePicker";
 import LoadingModal from "./LoadingModal";
-import MobileOptionNavBar from "./MobileOptionNavBar";
-import MobileSegmentDrawer from "./MobileSegmentDrawer";
+//import MobileOptionNavBar from "./MobileOptionNavBar";
+//import MobileSegmentDrawer from "./MobileSegmentDrawer";
 import PointsModal from "./PointsModal";
 import SegmentDrawer from "./SegmentDrawer";
 import ToolTip from "./ToolTip";
@@ -319,7 +319,7 @@ const Stage = ({
         break;
       default:
         break;
-        // return null;
+      // return null;
     }
   };
 
@@ -680,14 +680,6 @@ const Stage = ({
               />
               <div className="relative flex flex-col items-center justify-center flex-1 overflow-hidden md:overflow-visible md:px-12 md:py-9">
                 <div className="absolute top-0 z-30 flex flex-col items-center justify-center w-full md:relative">
-                  <MobileOptionNavBar
-                    handleResetInteraction={handleResetInteraction}
-                    handleUndoInteraction={handleUndoInteraction}
-                    handleRedoInteraction={handleRedoInteraction}
-                    handleResetState={handleResetState}
-                    handleImage={handleImage}
-                    userNegClickBool={[userNegClickBool, setUserNegClickBool]}
-                  />
                   <ToolTip
                     isHoverToolTip={[isHoverToolTip, setIsHoverToolTip]}
                     hasClicked={hasClicked}
@@ -730,12 +722,6 @@ const Stage = ({
                     />
                   </Profiler>
                 </div>
-                <MobileSegmentDrawer
-                  handleResetInteraction={handleResetInteraction}
-                  handleMagicErase={handleMagicErase}
-                  handleCreateSticker={handleCreateSticker}
-                  userNegClickBool={[userNegClickBool, setUserNegClickBool]}
-                />
               </div>
             </div>
           ) : !isToolBarUpload ? (
