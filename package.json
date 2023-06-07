@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "5.1.1",
     "css-loader": "^6.7.3",
-    "file-selector": "^0.6.0",
     "konva": "^8.4.3",
     "lz-string": "^1.5.0",
     "onnxruntime-common": "^1.14.0",
@@ -19,9 +18,8 @@
     "react-photo-album": "^2.0.3",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.61.0",
     "style-loader": "^3.3.2",
-    "swipeable": "^1.0.5",
-    "tslib": "^2.5.0",
     "typescript": "^4.9.5",
     "underscore": "^1.13.6"
   },

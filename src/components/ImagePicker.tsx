@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
-import { Button, Checkbox } from "react-daisyui";
+import React, { useContext, useState } from "react";
+import { Checkbox } from "react-daisyui";
 import { useDropzone } from "react-dropzone";
 import PhotoAlbum from "react-photo-album";
 import { NavLink } from "react-router-dom";
