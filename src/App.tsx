@@ -1,18 +1,17 @@
 import LZString from "lz-string";
 import { InferenceSession, Tensor } from "onnxruntime-web";
-import * as ort from 'onnxruntime-web';
+import * as ort from "onnxruntime-web";
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./assets/scss/App.scss";
-import Footer from "./components/Footer";
+//import Footer from "./components/Footer";
 import getFile from "./components/helpers/getFile";
 import { handleImageScale } from "./components/helpers/ImageHelper";
 import { modelScaleProps } from "./components/helpers/Interface";
 import {
   getAllMasks,
-  getBestPredMask,
+  //getBestPredMask,
   keepArrayForMultiMask,
-  rleFrString,
+  //rleFrString,
   rleToImage,
   traceCompressedRLeStringToSVG,
   traceOnnxMaskToSVG,
@@ -22,29 +21,23 @@ import {
   setParmsandQueryEraseModel,
   setParmsandQueryModel,
 } from "./components/helpers/modelAPI";
-import photos from "./components/helpers/photos";
-import HomePage from "./components/HomePage";
 import AppContext from "./components/hooks/createContext";
-import LegalText from "./components/LegalText";
-import NavBar from "./components/Navbar";
 import Stage from "./components/Stage";
-// import CookieText from "./CookieText";
 
-// console.log("hi")
 // Onnxruntime
 ort.env.debug = false;
 // set global logging level
-ort.env.logLevel = 'verbose';
+ort.env.logLevel = "verbose";
 
 // override path of wasm files - for each file
 ort.env.wasm.numThreads = 2;
 ort.env.wasm.simd = true;
 // ort.env.wasm.proxy = true;
 ort.env.wasm.wasmPaths = {
-  'ort-wasm.wasm': '/ort-wasm.wasm',
-  'ort-wasm-simd.wasm': '/ort-wasm-simd.wasm',
-  'ort-wasm-threaded.wasm': '/ort-wasm-threaded.wasm',
-  'ort-wasm-simd-threaded.wasm': '/ort-wasm-simd-threaded.wasm'
+  "ort-wasm.wasm": "/ort-wasm.wasm",
+  "ort-wasm-simd.wasm": "/ort-wasm-simd.wasm",
+  "ort-wasm-threaded.wasm": "/ort-wasm-threaded.wasm",
+  "ort-wasm-simd-threaded.wasm": "/ort-wasm-simd-threaded.wasm",
 };
 
 // ort.env.webgl.pack = true;
@@ -109,7 +102,8 @@ const App = () => {
     const initModel = async () => {
       try {
         // if (process.env.MODEL_DIR === undefined) return;
-        const MODEL_DIR = "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
+        const MODEL_DIR =
+          "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
         const URL: string = MODEL_DIR;
         // const URL: string = process.env.MODEL_DIR;
         const model = await InferenceSession.create(URL);
@@ -121,7 +115,8 @@ const App = () => {
       try {
         // console.log("MULTI MASK MODEL");
         // if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
-        const MULTI_MASK_MODEL_DIR = "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
+        const MULTI_MASK_MODEL_DIR =
+          "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
         const URL2: string = MULTI_MASK_MODEL_DIR;
         // console.log("MULTI MASK MODEL URL:", URL2);
         // const URL2: string = process.env.MULTI_MASK_MODEL_DIR;
@@ -352,6 +347,7 @@ const App = () => {
     };
   };
 
+  // Handle
   const handleImage = (img: HTMLImageElement = prevImage!) => {
     // Reset the image, mask and clicks
     setImage(img);
@@ -380,7 +376,6 @@ const App = () => {
     data: File | URL,
     options?: { shouldNotFetchAllModel?: boolean; shouldDownload?: boolean }
   ) => {
-
     if (data instanceof File) {
       console.log("GOT FILE " + data.name);
     } else if (data instanceof URL) {
@@ -400,7 +395,7 @@ const App = () => {
         imgName = data.pathname;
       } else if (data instanceof String) {
         // TODO: find the right place where to replace it...
-        data = new URL(data.replace('/assets/', '/public/assets/'));
+        data = new URL(data.replace("/assets/", "/public/assets/"));
         imgName = data.pathname;
       }
       imgName = imgName.substring(imgName.lastIndexOf("/") + 1);
@@ -516,81 +511,18 @@ const App = () => {
   };
 
   return (
-    <>
-      <Routes>
-        <Route path="*" element={<Navigate replace to="/demo" />} />
-        {/*
-        <Route
-          path="/terms"
-          element={
-            <div
-              className={`flex flex-col h-full w-full overflow-x-hidden items-center overflow-y-scroll`}
-            >
-              <NavBar resetState={handleResetState} />
-              <div className="w-full p-4 max-w-prose">
-                <LegalText />
-              </div>
-              <Footer />
-            </div>
-          }
-        />
-        <Route
-          path="/cookies"
-          element={
-            <div
-              className={`flex flex-col h-full w-full overflow-x-hidden items-center overflow-y-scroll`}
-            >
-              <NavBar resetState={handleResetState} />
-              <Footer />
-            </div>
-          }
-        />
-        */}
-        {/*
-        <Route
-          path="/"
-          element={
-            <div className={`flex flex-col h-full overflow-x-hidden`}>
-              <NavBar resetState={handleResetState} />
-              <HomePage
-                scale={modelScale}
-                handleResetState={handleResetState}
-                handleMagicErase={handleMagicErase}
-                handleImage={handleImage}
-                hasClicked={hasClicked}
-                setHasClicked={setHasClicked}
-                handleSelectedImage={handleSelectedImage}
-                image={image}
-                model={model}
-              />
-              <Footer />
-            </div>
-          }
-        />
-        */}
-        <Route
-          path="/demo"
-          element={
-            <div className={`flex flex-col h-full overflow-hidden`}>
-              {/*
-              <NavBar resetState={handleResetState} />
-              */}
-              <Stage
-                scale={modelScale}
-                handleResetState={handleResetState}
-                handleMagicErase={handleMagicErase}
-                handleImage={handleImage}
-                hasClicked={hasClicked}
-                setHasClicked={setHasClicked}
-                handleSelectedImage={handleSelectedImage}
-                image={image}
-              />
-              <Footer />
-            </div>
-          }
-        />
-      </Routes>
-    </>
+    <div className={`flex flex-col h-full overflow-hidden`}>
+      <Stage
+        scale={modelScale}
+        handleResetState={handleResetState}
+        handleMagicErase={handleMagicErase}
+        handleImage={handleImage}
+        hasClicked={hasClicked}
+        setHasClicked={setHasClicked}
+        handleSelectedImage={handleSelectedImage}
+        image={image}
+      />
+    </div>
   );
 };
 

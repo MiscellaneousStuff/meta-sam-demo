@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { getCookieConsentValue } from "react-cookie-consent";
+
 import { useDropzone } from "react-dropzone";
 import * as ReactGA from "react-ga4";
 import Animate from "./hooks/Animation";
 import AppContext from "./hooks/createContext";
 import SegmentOptions from "./SegmentOptions";
-import Sparkle from "./Sparkle";
+//import Sparkle from "./Sparkle";
 
 interface SegmentDrawerProps {
   handleResetState: () => void;
@@ -111,6 +112,12 @@ const SegmentDrawer = ({
     maxSize: 50_000_000,
   });
 
+  console.error(
+    visibleClickHover,
+    "isClickMounted",
+    isClickMounted,
+    isAllMounted
+  );
   return (
     <section className="flex-col hidden w-1/5 pt-[6%] overflow-y-auto md:flex lg:w-72">
       <div
@@ -480,7 +487,6 @@ const SegmentDrawer = ({
             }}
           >
             <div className="flex">
-              <Sparkle isActive={true} />
               <span
                 className={`pl-3 font-bold ${
                   segmentTypes === "All" && "text-blue-600"
