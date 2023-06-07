@@ -193,6 +193,36 @@ const SegmentDrawer = ({
               setIsCutOutMounted(false);
             }}
           >
+            <div className="flex">
+              <svg
+                width="17"
+                height="24"
+                viewBox="0 0 17 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3 mr-2"
+              >
+                <path
+                  d="M9.13635 23.8813C8.53843 24.1683 7.82091 23.9172 7.54586 23.3192L4.93889 17.6509L1.93729 20.0665C1.73399 20.2339 1.48286 20.3296 1.19586 20.3296C0.878697 20.3296 0.574526 20.2036 0.350259 19.9793C0.125992 19.7551 0 19.4509 0 19.1337V1.19586C0 0.878697 0.125992 0.574526 0.350259 0.350259C0.574526 0.125992 0.878697 0 1.19586 0C1.48286 0 1.75791 0.107627 1.96121 0.275047L1.97317 0.263089L15.7136 11.7912C16.2278 12.2217 16.2876 12.9751 15.869 13.4773C15.6897 13.6926 15.4385 13.8361 15.1874 13.8839L11.4085 14.6253L14.0394 20.2817C14.3503 20.8797 14.0633 21.5852 13.4654 21.8603L9.13635 23.8813Z"
+                  fill={`${segmentTypes === "Click" ? "#2962D9" : "#000000"}`}
+                />
+              </svg>
+              <span
+                className={`font-bold ${
+                  segmentTypes === "Click" && "text-blue-600"
+                }`}
+              >
+                Hover & Click
+              </span>
+            </div>
+            {segmentTypes !== "Click" && visibleClickHover && (
+              <Animate isMounted={isClickMounted}>
+                <p className="my-3 text-[11px] opacity-70">
+                  Click an object one or more times. Shift-click to remove
+                  regions.
+                </p>
+              </Animate>
+            )}
             {segmentTypes === "Click" && (
               <p className={`my-3 text-[11px] text-blue-700 opacity-70`}>
                 Click an object one or more times. Shift-click to remove
