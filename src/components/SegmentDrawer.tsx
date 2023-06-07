@@ -1,12 +1,9 @@
 import React, { useContext, useState } from "react";
-//import { getCookieConsentValue } from "react-cookie-consent";
-
 import { useDropzone } from "react-dropzone";
-//import * as ReactGA from "react-ga4";
+
 import Animate from "./hooks/Animation";
 import AppContext from "./hooks/createContext";
 import SegmentOptions from "./SegmentOptions";
-//import Sparkle from "./Sparkle";
 
 interface SegmentDrawerProps {
   handleResetState: () => void;
@@ -109,6 +106,7 @@ const SegmentDrawer = ({
 
   console.error(
     isMultiMaskMode,
+    uploadClick,
     visibleClickHover,
     "isClickMounted",
     isClickMounted,
@@ -181,7 +179,7 @@ const SegmentDrawer = ({
               setIsBoxCollapsed(true);
               setIsAllCollapsed(true);
               setIsCutOutCollapsed(true);
-              // setVisibleClickHover(false);
+              setVisibleClickHover(true);
               clearTimeout(clickTimeout);
               setIsClickMounted(false);
               setIsBoxMounted(false);
@@ -294,55 +292,7 @@ const SegmentDrawer = ({
               setIsAllMounted(false);
               setIsCutOutMounted(false);
             }}
-          >
-            <div className="flex justify-between mx-5 my-3">
-              <div
-                onClick={() => setUserNegClickBool(false)}
-                className="flex flex-col items-center"
-              >
-                <p
-                  className={`w-8 h-7 text-3xl leading-7 text-center align-middle rounded-lg mb-1 ${
-                    userNegClickBool
-                      ? "outline outline-1"
-                      : "bg-blue-600 text-white"
-                  }`}
-                >
-                  +
-                </p>
-                <p
-                  className={`text-xs font-bold ${
-                    !userNegClickBool && "text-blue-600"
-                  }`}
-                >
-                  Add Mask
-                </p>
-              </div>
-
-              <div
-                onClick={() => setUserNegClickBool(true)}
-                className={`flex flex-col items-center ${
-                  !hasClicked ? "disabled" : ""
-                }`}
-              >
-                <p
-                  className={`w-8 h-7 text-3xl leading-6 text-center align-middle rounded-lg mb-1 ${
-                    userNegClickBool
-                      ? "bg-blue-600 text-white"
-                      : "outline outline-1"
-                  }`}
-                >
-                  -
-                </p>
-                <p
-                  className={`text-xs font-bold ${
-                    userNegClickBool && "text-blue-600"
-                  }`}
-                >
-                  Remove Area
-                </p>
-              </div>
-            </div>
-          </div>
+          ></div>
 
           <div
             onClick={() => {
