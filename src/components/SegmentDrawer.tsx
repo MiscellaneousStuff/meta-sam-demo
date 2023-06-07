@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { getCookieConsentValue } from "react-cookie-consent";
+//import { getCookieConsentValue } from "react-cookie-consent";
 
 import { useDropzone } from "react-dropzone";
-import * as ReactGA from "react-ga4";
+//import * as ReactGA from "react-ga4";
 import Animate from "./hooks/Animation";
 import AppContext from "./hooks/createContext";
 import SegmentOptions from "./SegmentOptions";
@@ -112,8 +112,10 @@ const SegmentDrawer = ({
     visibleClickHover,
     "isClickMounted",
     isClickMounted,
-    isAllMounted
+    isAllMounted,
+    segmentTypes
   );
+
   return (
     <section className="flex-col hidden w-1/5 pt-[6%] overflow-y-auto md:flex lg:w-72">
       <div
@@ -154,11 +156,6 @@ const SegmentDrawer = ({
           <div
             onClick={() => {
               segmentTypes !== "Click" && handleResetInteraction();
-              getCookieConsentValue("sa_demo") === "true" &&
-                ReactGA.default.send({
-                  category: "event",
-                  action: "is_click",
-                });
               clearTimeout(clickTimeout);
               setSegmentTypes("Click");
               setIsCutOut(false);
@@ -264,11 +261,6 @@ const SegmentDrawer = ({
           <div
             onClick={() => {
               segmentTypes !== "Box" && handleResetInteraction(true);
-              getCookieConsentValue("sa_demo") === "true" &&
-                ReactGA.default.send({
-                  category: "event",
-                  action: "is_box",
-                });
               clearTimeout(boxTimeout);
               setIsMultiMaskMode(false);
               setSegmentTypes("Box");
@@ -304,40 +296,6 @@ const SegmentDrawer = ({
               setIsCutOutMounted(false);
             }}
           >
-            <div className="flex">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.7778 0H2.22222C1.63285 0 1.06762 0.234126 0.650874 0.650874C0.234126 1.06762 0 1.63285 0 2.22222V17.7778C0 18.3671 0.234126 18.9324 0.650874 19.3491C1.06762 19.7659 1.63285 20 2.22222 20H17.7778C18.3671 20 18.9324 19.7659 19.3491 19.3491C19.7659 18.9324 20 18.3671 20 17.7778V2.22222C20 1.63285 19.7659 1.06762 19.3491 0.650874C18.9324 0.234126 18.3671 0 17.7778 0ZM17.7778 17.7778H2.22222V2.22222H17.7778V17.7778ZM15.5556 15.5556H4.44444V4.44444H15.5556V15.5556Z"
-                  fill={`${segmentTypes === "Box" ? "#2962D9" : "#000000"}`}
-                />
-              </svg>
-
-              <span
-                className={`pl-2 font-bold ${
-                  segmentTypes === "Box" && "text-blue-600"
-                }`}
-              >
-                Box
-              </span>
-            </div>
-            {segmentTypes !== "Box" && visibleBoxHover && (
-              <Animate isMounted={isBoxMounted}>
-                <p className="my-3 text-xs opacity-70">
-                  Roughly draw a box around an object.
-                </p>
-              </Animate>
-            )}
-            {segmentTypes === "Box" && (
-              <p className={`my-3 text-xs text-blue-700 opacity-70`}>
-                Roughly draw a box around an object.
-              </p>
-            )}
             <div className="flex justify-between mx-5 my-3">
               <div
                 onClick={() => setUserNegClickBool(false)}
@@ -385,29 +343,11 @@ const SegmentDrawer = ({
                 </p>
               </div>
             </div>
-            {segmentTypes === "Box" && (
-              <SegmentOptions
-                handleResetInteraction={handleResetInteraction}
-                handleUndoInteraction={handleUndoInteraction}
-                handleRedoInteraction={handleRedoInteraction}
-                handleCreateSticker={handleCreateSticker}
-                handleMagicErase={handleMagicErase}
-                handleImage={handleImage}
-                hasClicked={hasClicked}
-                isCutOut={[isCutOut, setIsCutOut]}
-                handleMultiMaskMode={handleMultiMaskMode}
-              />
-            )}
           </div>
 
           <div
             onClick={() => {
               segmentTypes !== "All" && handleResetInteraction();
-              getCookieConsentValue("sa_demo") === "true" &&
-                ReactGA.default.send({
-                  category: "event",
-                  action: "is_amg",
-                });
               clearTimeout(allTimeout);
               setSegmentTypes("All");
               setIsCutOut(false);
@@ -504,11 +444,6 @@ const SegmentDrawer = ({
               setIsMultiMaskMode(false);
               setIsCutOut(true);
               setUploadClick(false);
-              getCookieConsentValue("sa_demo") === "true" &&
-                ReactGA.default.send({
-                  category: "event",
-                  action: "is_cutout",
-                });
             }}
             className={`transition-all overflow-hidden my-2 rounded-xl px-4 py-2 cursor-pointer ${
               isCutOut
