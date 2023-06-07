@@ -4,13 +4,6 @@
   "private": true,
   "dependencies": {
     "@remix-run/router": "^1.5.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.33",
-    "@types/react-dom": "^18.0.11",
     "attr-accept": "^2.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
@@ -71,6 +64,13 @@
   },
   "devDependencies": {
     "@types/underscore": "^1.11.4",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.23",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11"
   }
 }

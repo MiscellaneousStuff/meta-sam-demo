@@ -111,6 +111,12 @@ const SegmentDrawer = ({
     maxSize: 50_000_000,
   });
 
+  console.error(
+    visibleClickHover,
+    "isClickMounted",
+    isClickMounted,
+    isAllMounted
+  );
   return (
     <section className="flex-col hidden w-1/5 pt-[6%] overflow-y-auto md:flex lg:w-72">
       <div
