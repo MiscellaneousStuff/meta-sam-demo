@@ -11,15 +11,15 @@
     "onnxruntime-common": "^1.14.0",
     "onnxruntime-web": "^1.14.0",
     "process": "^0.11.10",
+    "sass": "^1.61.0",
+    "typescript": "^4.5.5",
+    "underscore": "^1.13.6",
     "react-daisyui": "^3.1.2",
     "react-dropzone": "^14.2.3",
     "react-konva": "^18.2.5",
     "react-photo-album": "^2.0.3",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.61.0",
-    "typescript": "^4.5.5",
-    "underscore": "^1.13.6"
   },
   "scripts": {
     "start": "react-scripts start",
