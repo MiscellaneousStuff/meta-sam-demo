@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { RadialProgress } from "react-daisyui";
+//import { RadialProgress } from "react-daisyui";
 import { Circle, Image, Layer, Path, Rect, Ring, Stage } from "react-konva";
 import {
   canvasScaleInitializer,
@@ -406,16 +406,7 @@ const Canvas = ({
       {shouldShowSpinner && (
         <div
           className={`absolute z-10 flex items-center justify-center w-full h-full md:hidden`}
-        >
-          <RadialProgress
-            className="animate-spin"
-            size={
-              0.3 * Math.min(resizer.scaledWidth, resizer.scaledHeight) + "px"
-            }
-            thickness="1rem"
-            value={70}
-          ></RadialProgress>
-        </div>
+        ></div>
       )}
       <div
         className={`absolute w-full h-full overflow-auto Canvas-wrapper md:overflow-visible md:w-auto md:h-auto absolute-center ${
@@ -683,17 +674,7 @@ const Canvas = ({
           {shouldShowSpinner && (
             <div
               className={`hidden absolute z-10 md:flex items-center justify-center w-full h-full top-0`}
-            >
-              <RadialProgress
-                className="animate-spin"
-                size={
-                  0.3 * Math.min(resizer.scaledWidth, resizer.scaledHeight) +
-                  "px"
-                }
-                thickness="1rem"
-                value={70}
-              ></RadialProgress>
-            </div>
+            ></div>
           )}
         </div>
       </div>

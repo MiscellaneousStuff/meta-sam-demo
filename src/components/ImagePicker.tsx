@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Checkbox } from "react-daisyui";
+//import { Checkbox } from "react-daisyui";
 import { useDropzone } from "react-dropzone";
 import PhotoAlbum from "react-photo-album";
 import { NavLink } from "react-router-dom";
@@ -120,11 +120,6 @@ const ImagePicker = ({
           </ul>
 
           <div className="flex flex-row m-4 md:mt-6 md:mb-6">
-            <Checkbox
-              className="mt-1 mr-2"
-              checked={acceptedTerms}
-              onChange={() => handleAttemptContinue()}
-            />
             <div>
               <div className="pb-4">
                 <span>
