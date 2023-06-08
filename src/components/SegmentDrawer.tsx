@@ -120,36 +120,6 @@ const SegmentDrawer = ({
         className={`shadow-[0px_0px_15px_5px_#00000024] rounded-xl md:mx-1 lg:mx-5`}
       >
         <div className="p-4 pt-5">
-          {uploadClick && false && (
-            <div className="flex justify-between px-3 py-2 mb-3 cursor-pointer rounded-xl outline outline-gray-200">
-              <button
-                className="flex"
-                onClick={() => {
-                  setShowGallery(true);
-                  setIsCutOut(false);
-                  setIsToolBarUpload(true);
-                }}
-              >
-                <span {...getRootProps()} className="flex text-sm">
-                  <input {...getInputProps()} />
-                  Upload
-                </span>
-              </button>
-              <button
-                className="flex"
-                onClick={() => {
-                  setIsToolBarUpload(false);
-                  setShowGallery(false);
-                  setIsCutOut(false);
-                  setDidShowAMGAnimation(false);
-                  handleResetState();
-                }}
-              >
-                <span className="text-sm">Gallery</span>
-              </button>
-            </div>
-          )}
-
           <div
             onClick={() => {
               segmentTypes !== "Click" && handleResetInteraction();
