@@ -101,7 +101,7 @@ const SegmentDrawer = ({
         console.log(error);
       }
     },
-    maxSize: 50_000_000,
+    maxSize: 50000000, //50_000_000,
   });
 
   console.error(
