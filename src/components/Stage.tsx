@@ -125,6 +125,8 @@ const Stage = ({
   };
 
   const handleCreateSticker = () => {
+    console.error();
+
     if (konvaRef.current === null) return;
     setIsLoading(true);
     superDefer(() =>
@@ -603,6 +605,8 @@ const Stage = ({
     }
   };
 
+  console.error("image", image);
+
   return (
     <>
       {isStandalone ? (
@@ -613,8 +617,8 @@ const Stage = ({
               ref={containerRef}
               style={
                 window.innerWidth < 768
-                  ? { height: "calc(100vh/2" }
-                  : { height: canvasHeight }
+                  ? { height: "calc(100vh/2", backgroundColor: "red" }
+                  : { height: canvasHeight, backgroundColor: "red" }
               }
             >
               <Canvas
