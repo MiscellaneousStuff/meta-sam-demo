@@ -710,7 +710,7 @@ const Stage = ({
                 </div>
               </div>
             </div>
-          ) : !isToolBarUpload ? (
+          ) : true && !isToolBarUpload ? (
             <div className="flex items-stretch justify-center flex-1 overflow-hidden stage">
               <ImagePicker
                 handleSelectedImage={handleSelectedImage}

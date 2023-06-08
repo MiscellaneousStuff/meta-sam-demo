@@ -387,37 +387,7 @@ const SegmentDrawer = ({
               setIsAllMounted(false);
               setIsCutOutMounted(false);
             }}
-          >
-            {false ? (
-              <div
-                className={`flex ${
-                  isCutOut === false &&
-                  (isCutOutCollapsed ? "max-h-[40px]" : "max-h-[2048px]")
-                }`}
-              >
-                <span
-                  className={`pl-2 font-bold ${isCutOut && "text-blue-600"}`}
-                >
-                  Cut-Outs
-                </span>
-                {isCutOut && (
-                  <button
-                    className="ml-auto font-bold"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsCutOut(false);
-                      setSegmentTypes("Click");
-                      setUploadClick(true);
-                    }}
-                  >
-                    Close
-                  </button>
-                )}
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
+          ></div>
         </div>
       </div>
     </section>
