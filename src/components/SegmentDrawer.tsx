@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-import Animate from "./hooks/Animation";
+//import Animate from "./hooks/Animation";
 import AppContext from "./hooks/createContext";
 import SegmentOptions from "./SegmentOptions";
 
@@ -351,16 +351,14 @@ const SegmentDrawer = ({
               </span>
             </div>
             {segmentTypes !== "All" && visibleAllHover && (
-              <Animate isMounted={isAllMounted}>
-                <p
-                  className={`text-xs my-3 opacity-70 ${
-                    (!isModelLoaded["allModel"] || (isLoading && !isErased)) &&
-                    "disabled"
-                  }`}
-                >
-                  Find all the objects in the image automatically.
-                </p>
-              </Animate>
+              <p
+                className={`text-xs my-3 opacity-70 ${
+                  (!isModelLoaded["allModel"] || (isLoading && !isErased)) &&
+                  "disabled"
+                }`}
+              >
+                Find all the objects in the image automatically.
+              </p>
             )}
             {segmentTypes === "All" && (
               <p
@@ -450,28 +448,24 @@ const SegmentDrawer = ({
               <></>
             )}
             {isCutOut === false && visibleStickerHover && (
-              <Animate isMounted={isCutOutMounted}>
-                <p className="my-2 text-xs opacity-70">See Cut-outs</p>
-              </Animate>
+              <p className="my-2 text-xs opacity-70">See Cut-outs</p>
             )}
             {isCutOut && (
               <>
-                <Animate isMounted={isCutOut}>
-                  <p className="my-1 text-xs text-blue-700">See Cut-outs</p>
-                  <div className="overflow-y-auto h-[30rem] text-center">
-                    {stickers.map((el: HTMLCanvasElement, i) => (
-                      <img
-                        key={i}
-                        className={`sticker m-5 max-w-[75%] max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 cursor-pointer inline hover:opacity-100 ${
-                          i === activeSticker ? "sticker-select" : ""
-                        }`}
-                        alt="sticker"
-                        src={el.toDataURL()}
-                        onClick={(e) => handleStickerClick(i)}
-                      />
-                    ))}
-                  </div>
-                </Animate>
+                <p className="my-1 text-xs text-blue-700">See Cut-outs</p>
+                <div className="overflow-y-auto h-[30rem] text-center">
+                  {stickers.map((el: HTMLCanvasElement, i) => (
+                    <img
+                      key={i}
+                      className={`sticker m-5 max-w-[75%] max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 cursor-pointer inline hover:opacity-100 ${
+                        i === activeSticker ? "sticker-select" : ""
+                      }`}
+                      alt="sticker"
+                      src={el.toDataURL()}
+                      onClick={(e) => handleStickerClick(i)}
+                    />
+                  ))}
+                </div>
               </>
             )}
           </div>
