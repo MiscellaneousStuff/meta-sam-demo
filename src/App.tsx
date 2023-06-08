@@ -2,7 +2,7 @@ import LZString from "lz-string";
 import { InferenceSession, Tensor } from "onnxruntime-web";
 import * as ort from "onnxruntime-web";
 import React, { useContext, useEffect, useState } from "react";
-import "./assets/scss/App.scss";
+//import "./assets/scss/App.scss";
 //import Footer from "./components/Footer";
 import getFile from "./components/helpers/getFile";
 import { handleImageScale } from "./components/helpers/ImageHelper";

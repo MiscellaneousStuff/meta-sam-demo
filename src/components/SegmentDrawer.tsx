@@ -447,27 +447,6 @@ const SegmentDrawer = ({
             ) : (
               <></>
             )}
-            {isCutOut === false && visibleStickerHover && (
-              <p className="my-2 text-xs opacity-70">See Cut-outs</p>
-            )}
-            {isCutOut && (
-              <>
-                <p className="my-1 text-xs text-blue-700">See Cut-outs</p>
-                <div className="overflow-y-auto h-[30rem] text-center">
-                  {stickers.map((el: HTMLCanvasElement, i) => (
-                    <img
-                      key={i}
-                      className={`sticker m-5 max-w-[75%] max-h-20 md:max-h-24 lg:max-h-28 xl:max-h-32 cursor-pointer inline hover:opacity-100 ${
-                        i === activeSticker ? "sticker-select" : ""
-                      }`}
-                      alt="sticker"
-                      src={el.toDataURL()}
-                      onClick={(e) => handleStickerClick(i)}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
           </div>
         </div>
       </div>
