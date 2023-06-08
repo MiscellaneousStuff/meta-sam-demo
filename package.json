@@ -18,8 +18,7 @@
     "react-dropzone": "^14.2.3",
     "react-konva": "^18.2.5",
     "react-photo-album": "^2.0.3",
-    "react-router-dom": "^6.10.0",
-    "react-scripts": "5.0.1"
+    "react-router-dom": "^6.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,6 +49,7 @@
     "webpack-cli": "^5.0.1",
     "@types/node": "^14.x",
     "@types/react": "^18.0.33",
-    "@types/react-dom": "^18.0.11"
+    "@types/react-dom": "^18.0.11",
+    "react-scripts": "5.0.1"
   }
 }
