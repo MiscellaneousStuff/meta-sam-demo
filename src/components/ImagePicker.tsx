@@ -85,7 +85,7 @@ const ImagePicker = ({
         console.log(error);
       }
     },
-    maxSize: 50_000_000,
+    maxSize: 5000000, //50_000_000,
   });
 
   const StarterModal = () => {
