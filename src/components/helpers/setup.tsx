@@ -22,6 +22,22 @@ import {
 } from "./modelAPI";
 import AppContext from "../hooks/createContext";
 
+// Onnxruntime
+ort.env.debug = true;
+// set global logging level
+ort.env.logLevel = "verbose";
+
+// override path of wasm files - for each file
+ort.env.wasm.numThreads = 2;
+ort.env.wasm.simd = true;
+// ort.env.wasm.proxy = true;
+ort.env.wasm.wasmPaths = {
+  "ort-wasm.wasm": "/ort-wasm.wasm",
+  "ort-wasm-simd.wasm": "/ort-wasm-simd.wasm",
+  "ort-wasm-threaded.wasm": "/ort-wasm-threaded.wasm",
+  "ort-wasm-simd-threaded.wasm": "/ort-wasm-simd-threaded.wasm",
+};
+
 // if (process.env.MODEL_DIR === undefined) return;
 export const MODEL_DIR =
   "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";

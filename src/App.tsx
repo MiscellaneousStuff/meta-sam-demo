@@ -24,6 +24,14 @@ import {
 import AppContext from "./components/hooks/createContext";
 import Stage from "./components/Stage";
 
+import {
+  sortAndReturnIndices,
+  sortByIndices,
+  MODEL_DIR,
+  MULTI_MASK_MODEL_DIR,
+} from "./components/helpers/setup";
+
+/*
 // if (process.env.MODEL_DIR === undefined) return;
 const MODEL_DIR =
   "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
@@ -50,6 +58,7 @@ ort.env.wasm.wasmPaths = {
 };
 
 // ort.env.webgl.pack = true;
+/*
 const sortAndReturnIndices = (arr: Array<number>) => {
   const indices = Array.from(arr.keys());
   indices.sort((a, b) => arr[b] - arr[a]);
@@ -63,7 +72,7 @@ const sortByIndices = (items: any, indices: Array<number>) => {
   }
   return result;
 };
-
+*/
 const App = () => {
   const {
     click: [click, setClick],
