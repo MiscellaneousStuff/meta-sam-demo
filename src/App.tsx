@@ -1,9 +1,6 @@
 import LZString from "lz-string";
 import { InferenceSession, Tensor } from "onnxruntime-web";
-import * as ort from "onnxruntime-web";
 import React, { useContext, useEffect, useState } from "react";
-//import "./assets/scss/App.scss";
-//import Footer from "./components/Footer";
 import getFile from "./components/helpers/getFile";
 import { handleImageScale } from "./components/helpers/ImageHelper";
 import { modelScaleProps } from "./components/helpers/Interface";
@@ -23,7 +20,7 @@ import {
 } from "./components/helpers/modelAPI";
 import AppContext from "./components/hooks/createContext";
 import Stage from "./components/Stage";
-
+import Panel from "./components/Panel";
 import {
   sortAndReturnIndices,
   sortByIndices,
@@ -32,47 +29,6 @@ import {
 } from "./components/helpers/setup";
 
 /*
-// if (process.env.MODEL_DIR === undefined) return;
-const MODEL_DIR =
-  "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
-
-// console.log("MULTI MASK MODEL");
-// if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
-const MULTI_MASK_MODEL_DIR =
-  "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
-
-// Onnxruntime
-ort.env.debug = true;
-// set global logging level
-ort.env.logLevel = "verbose";
-
-// override path of wasm files - for each file
-ort.env.wasm.numThreads = 2;
-ort.env.wasm.simd = true;
-// ort.env.wasm.proxy = true;
-ort.env.wasm.wasmPaths = {
-  "ort-wasm.wasm": "/ort-wasm.wasm",
-  "ort-wasm-simd.wasm": "/ort-wasm-simd.wasm",
-  "ort-wasm-threaded.wasm": "/ort-wasm-threaded.wasm",
-  "ort-wasm-simd-threaded.wasm": "/ort-wasm-simd-threaded.wasm",
-};
-
-// ort.env.webgl.pack = true;
-/*
-const sortAndReturnIndices = (arr: Array<number>) => {
-  const indices = Array.from(arr.keys());
-  indices.sort((a, b) => arr[b] - arr[a]);
-  return indices;
-};
-
-const sortByIndices = (items: any, indices: Array<number>) => {
-  const result = [];
-  for (var i = 0; i < indices.length; i++) {
-    result.push(items[indices[i]]);
-  }
-  return result;
-};
-*/
 const App = () => {
   const {
     click: [click, setClick],
@@ -519,19 +475,12 @@ const App = () => {
     setIsHovering(null);
     setPredMasks(null);
   };
+*/
 
+const App = () => {
   return (
     <div className={`flex flex-col h-full overflow-hidden`}>
-      <Stage
-        scale={modelScale}
-        handleResetState={handleResetState}
-        handleMagicErase={handleMagicErase}
-        handleImage={handleImage}
-        hasClicked={hasClicked}
-        setHasClicked={setHasClicked}
-        handleSelectedImage={handleSelectedImage}
-        image={image}
-      />
+      <Panel />
     </div>
   );
 };

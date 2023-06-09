@@ -1,9 +1,6 @@
 import LZString from "lz-string";
 import { InferenceSession, Tensor } from "onnxruntime-web";
-import * as ort from "onnxruntime-web";
 import React, { useContext, useEffect, useState } from "react";
-//import "./assets/scss/App.scss";
-//import Footer from "./Footer";
 import getFile from "./helpers/getFile";
 import { handleImageScale } from "./helpers/ImageHelper";
 import { modelScaleProps } from "./helpers/Interface";
@@ -23,26 +20,14 @@ import {
 } from "./helpers/modelAPI";
 import AppContext from "./hooks/createContext";
 import Stage from "./Stage";
+import {
+  sortAndReturnIndices,
+  sortByIndices,
+  MODEL_DIR,
+  MULTI_MASK_MODEL_DIR,
+} from "./helpers/setup";
 
-// Onnxruntime
-ort.env.debug = false;
-// set global logging level
-ort.env.logLevel = "verbose";
-
-// override path of wasm files - for each file
-ort.env.wasm.numThreads = 2;
-ort.env.wasm.simd = true;
-// ort.env.wasm.proxy = true;
-ort.env.wasm.wasmPaths = {
-  "ort-wasm.wasm": "/ort-wasm.wasm",
-  "ort-wasm-simd.wasm": "/ort-wasm-simd.wasm",
-  "ort-wasm-threaded.wasm": "/ort-wasm-threaded.wasm",
-  "ort-wasm-simd-threaded.wasm": "/ort-wasm-simd-threaded.wasm",
-};
-
-// ort.env.webgl.pack = true;
-
-const Panel = () => {
+const Panel = (props: any) => {
   const {
     click: [click, setClick],
     clicks: [clicks, setClicks],
@@ -101,9 +86,6 @@ const Panel = () => {
   useEffect(() => {
     const initModel = async () => {
       try {
-        // if (process.env.MODEL_DIR === undefined) return;
-        const MODEL_DIR =
-          "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
         const URL: string = MODEL_DIR;
         // const URL: string = process.env.MODEL_DIR;
         const model = await InferenceSession.create(URL);
@@ -113,10 +95,6 @@ const Panel = () => {
         console.error(e);
       }
       try {
-        // console.log("MULTI MASK MODEL");
-        // if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
-        const MULTI_MASK_MODEL_DIR =
-          "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
         const URL2: string = MULTI_MASK_MODEL_DIR;
         // console.log("MULTI MASK MODEL URL:", URL2);
         // const URL2: string = process.env.MULTI_MASK_MODEL_DIR;
@@ -228,20 +206,6 @@ const Panel = () => {
     } catch (e) {
       // console.log(e);
     }
-  };
-
-  const sortAndReturnIndices = (arr: Array<number>) => {
-    const indices = Array.from(arr.keys());
-    indices.sort((a, b) => arr[b] - arr[a]);
-    return indices;
-  };
-
-  const sortByIndices = (items: any, indices: Array<number>) => {
-    const result = [];
-    for (var i = 0; i < indices.length; i++) {
-      result.push(items[indices[i]]);
-    }
-    return result;
   };
 
   const runModel = async () => {
