@@ -24,8 +24,25 @@ import {
 import AppContext from "./components/hooks/createContext";
 import Stage from "./components/Stage";
 
+import {
+  sortAndReturnIndices,
+  sortByIndices,
+  MODEL_DIR,
+  MULTI_MASK_MODEL_DIR,
+} from "./components/helpers/setup";
+
+/*
+// if (process.env.MODEL_DIR === undefined) return;
+const MODEL_DIR =
+  "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
+
+// console.log("MULTI MASK MODEL");
+// if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
+const MULTI_MASK_MODEL_DIR =
+  "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
+
 // Onnxruntime
-ort.env.debug = false;
+ort.env.debug = true;
 // set global logging level
 ort.env.logLevel = "verbose";
 
@@ -41,7 +58,21 @@ ort.env.wasm.wasmPaths = {
 };
 
 // ort.env.webgl.pack = true;
+/*
+const sortAndReturnIndices = (arr: Array<number>) => {
+  const indices = Array.from(arr.keys());
+  indices.sort((a, b) => arr[b] - arr[a]);
+  return indices;
+};
 
+const sortByIndices = (items: any, indices: Array<number>) => {
+  const result = [];
+  for (var i = 0; i < indices.length; i++) {
+    result.push(items[indices[i]]);
+  }
+  return result;
+};
+*/
 const App = () => {
   const {
     click: [click, setClick],
@@ -101,9 +132,6 @@ const App = () => {
   useEffect(() => {
     const initModel = async () => {
       try {
-        // if (process.env.MODEL_DIR === undefined) return;
-        const MODEL_DIR =
-          "./interactive_module_quantized_592547_2023_03_19_sam6_long_uncertain.onnx";
         const URL: string = MODEL_DIR;
         // const URL: string = process.env.MODEL_DIR;
         const model = await InferenceSession.create(URL);
@@ -113,10 +141,6 @@ const App = () => {
         console.error(e);
       }
       try {
-        // console.log("MULTI MASK MODEL");
-        // if (process.env.MULTI_MASK_MODEL_DIR === undefined) return;
-        const MULTI_MASK_MODEL_DIR =
-          "./interactive_module_quantized_592547_2023_03_20_sam6_long_all_masks_extra_data_with_ious.onnx";
         const URL2: string = MULTI_MASK_MODEL_DIR;
         // console.log("MULTI MASK MODEL URL:", URL2);
         // const URL2: string = process.env.MULTI_MASK_MODEL_DIR;
@@ -228,20 +252,6 @@ const App = () => {
     } catch (e) {
       // console.log(e);
     }
-  };
-
-  const sortAndReturnIndices = (arr: Array<number>) => {
-    const indices = Array.from(arr.keys());
-    indices.sort((a, b) => arr[b] - arr[a]);
-    return indices;
-  };
-
-  const sortByIndices = (items: any, indices: Array<number>) => {
-    const result = [];
-    for (var i = 0; i < indices.length; i++) {
-      result.push(items[indices[i]]);
-    }
-    return result;
   };
 
   const runModel = async () => {
